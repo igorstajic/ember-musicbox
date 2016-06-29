@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-9 songs-table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Duration</th>
+            <th>Likes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |song|}}
+          <tr>
+            <td>{{song.name}}</td>
+            <td>{{song.artist.name}}</td>
+            <td>{{song.genre}}</td>
+            <td>{{song.duration}}</td>
+            <td>{{song.hearts}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+  </div>
+
+  <div class="songs-filter-container col-md-3 col-md-offset-9">
+    <strong>Filter by </strong>
+  </div>
+</div>
