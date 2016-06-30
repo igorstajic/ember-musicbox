@@ -2,6 +2,12 @@ $navbar-color: #000;
 $main-color: #fff;
 $background-color: #ececec;
 $border-color: #c7c7c7;
+$selected-color: #2285b6;
+
+.selectable:hover {
+  cursor: pointer;
+  color: $selected-color !important;
+}
 body {
   font-size: 200%;
 }
@@ -51,11 +57,9 @@ body {
   background-color: $background-color;
   border-left: 2px solid $border-color;
 }
-.side-filter-list {
-  padding-top: 8px;
-}
 // Side filter component.
 .table-filter {
+  margin-top: 8px;
   background-color: $main-color;
   position: relative;
   .filter-body {

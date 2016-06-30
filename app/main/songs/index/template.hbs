@@ -12,9 +12,9 @@
           </tr>
         </thead>
         <tbody>
-          {{#each model as |song|}}
+          {{#each filteredList as |song|}}
           <tr>
-            <td>{{song.name}}</td>
+            {{link-to song.name 'songs.song' song.id class='selectable' tagName='td'}}
             <td>{{song.artist.name}}</td>
             <td>{{song.genre}}</td>
             <td>{{song.duration}}</td>
@@ -28,11 +28,8 @@
 
   <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">
     <strong>Filter by </strong>
-    <div class="side-filter-list">
-      {{table-filter}}
-    </div>
-    <div class="side-filter-list">
-      {{table-filter}}
-    </div>
+    {{table-filter title='Artist' values=allSongs filterKey='artist.name' update=(action 'updateFilter' 'selectedArtistNames')}}
+    {{table-filter title='Genre' values=allSongs filterKey='genre' update=(action 'updateFilter' 'selectedGenreNames')}}
+
   </div>
 </div>
