@@ -13,7 +13,7 @@
     <div class="song-details-container">
       <div class="row">
         <p class="col-md-6">Duration</p>
-        <p class="col-md-6 align-right">{{song.duration}}</p>
+        <p class="col-md-6 align-right">{{format-song-duration song.duration songs.globalSettings.timeFormat}}</p>
       </div>
       <hr />
       <div class="row">

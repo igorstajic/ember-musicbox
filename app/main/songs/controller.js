@@ -1,8 +1,18 @@
 import Ember from 'ember';
 const {
   Controller,
-  computed
+  computed,
+  set,
+  inject: {
+    service
+  }
 } = Ember;
 export default Controller.extend({
-  all: computed.alias('model')
+  globalSettings: service(),
+  all: computed.alias('model'),
+  actions: {
+    setTimeFormat(format) {
+      set(this, 'globalSettings.timeFormat', format);
+    }
+  }
 });

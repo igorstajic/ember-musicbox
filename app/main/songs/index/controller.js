@@ -7,10 +7,12 @@ const {
   get,
   set,
   isEmpty,
-  computed
+  computed,
+  inject
 } = Ember;
 export default Controller.extend({
-  songs: Ember.inject.controller(),
+
+  songs: inject.controller(),
   allSongs: computed.alias('songs.all'),
 
   filteredList: computed('allSongs.[]', 'selectedArtistNames.[]', 'selectedGenreNames.[]', function() {

@@ -1,5 +1,5 @@
 {{#each totalHearts as |heart|}}
-  <span class="heart-rating glyphicon {{if heart.full 'glyphicon-heart' 'glyphicon-heart-empty'}}"
+  <span class="heart-rating pointer glyphicon {{if heart.full 'glyphicon-heart' 'glyphicon-heart-empty'}}"
         {{action 'updateRating' item heart.rating heart.full}}>
   </span>
 {{/each}}

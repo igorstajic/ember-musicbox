@@ -17,7 +17,7 @@
             {{link-to song.name 'songs.song' song.id class='selectable' tagName='td'}}
             <td>{{song.artist.name}}</td>
             <td>{{song.genre}}</td>
-            <td>{{song.duration}}</td>
+            <td>{{format-song-duration song.duration songs.globalSettings.timeFormat}}</td>
             <td>{{likes-meter item=song currentRating=song.hearts maxRating=3 update=(action 'setRating')}}</td>
           </tr>
           {{/each}}
