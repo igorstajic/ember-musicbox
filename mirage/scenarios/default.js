@@ -10,4 +10,5 @@ export default function(server) {
   server.loadFixtures('songs');
 
   server.get('/songs');
+  server.get('/songs/:id');
 }

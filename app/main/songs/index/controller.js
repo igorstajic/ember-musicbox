@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import filterArrayFormatter from 'ember-musicbox/utils/formatters';
 const {
   Controller,
   get,
@@ -6,10 +7,11 @@ const {
   computed
 } = Ember;
 export default Controller.extend({
+  songs: Ember.inject.controller(),
+  allSongs: computed.alias('songs.all'),
+
   selectedArtistNames: [],
   selectedGenreNames: [],
-
-  allSongs: computed.alias('model'),
 
   filteredList: computed('allSongs.[]', 'selectedArtistNames.[]', 'selectedGenreNames.[]', function() {
     return get(this, 'allSongs').filter(song => {
@@ -17,7 +19,13 @@ export default Controller.extend({
         (get(this, 'selectedGenreNames').contains(get(song, 'genre')) || isEmpty(get(this, 'selectedGenreNames')));
     });
   }),
+  artistNames: computed('allSongs.[]', 'selectedArtistNames.[]', function() {
+    return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedArtistNames'), 'artist.name');
+  }),
+  genreNames: computed('allSongs.[]','selectedGenreNames.[]', function() {
+    return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedGenreNames'), 'genre');
 
+  }),
   actions: {
     updateFilter(propertyName, artistName, eventObject) {
       if (eventObject.target.checked) {

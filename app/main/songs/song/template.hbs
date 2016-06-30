@@ -1,10 +1,9 @@
 <div class="row">
   <div class="col-md-9 songs-table-container col-sm-8 col-xs-8">
-
+    {{link-to 'Back to list' 'songs' class="back-link"}}
   </div>
 
   <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">
-    <strong>Other songs by {{song.artist.name}}</strong>
-
+    {{side-list title=(concat 'Other songs by ' song.artist.name) values=otherSongNames}}
   </div>
 </div>

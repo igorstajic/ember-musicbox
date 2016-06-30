@@ -5,7 +5,6 @@ const {
   computed
 } = Ember;
 export default Component.extend({
-  classNames: ['table-filter'],
-  title: 'Default title',
+  classNames: ['table-filter read-only'],
   values: []
 });

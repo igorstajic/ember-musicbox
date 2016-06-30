@@ -28,8 +28,8 @@
 
   <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">
     <strong>Filter by </strong>
-    {{table-filter title='Artist' values=allSongs filterKey='artist.name' update=(action 'updateFilter' 'selectedArtistNames')}}
-    {{table-filter title='Genre' values=allSongs filterKey='genre' update=(action 'updateFilter' 'selectedGenreNames')}}
+    {{table-filter title='Artist' values=artistNames update=(action 'updateFilter' 'selectedArtistNames')}}
+    {{table-filter title='Genre' values=genreNames update=(action 'updateFilter' 'selectedGenreNames')}}
 
   </div>
 </div>

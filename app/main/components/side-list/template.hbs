@@ -4,16 +4,14 @@
       <th>{{title}}</th>
     </tr>
   </thead>
-  <div class="filter-body">
+  <div class="side-list-body">
     <table class="table">
       <tbody>
         {{#each values as |item|}}
         <tr>
           <td>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" checked={{item.selected}} onchange={{action attrs.update item.name}}> {{item.name}}
-              </label>
+            <div>
+              {{item}}
             </div>
           </td>
         </tr>
