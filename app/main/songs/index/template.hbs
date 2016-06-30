@@ -18,7 +18,7 @@
             <td>{{song.artist.name}}</td>
             <td>{{song.genre}}</td>
             <td>{{song.duration}}</td>
-            <td>{{song.hearts}}</td>
+            <td>{{likes-meter item=song currentRating=song.hearts maxRating=3 update=(action 'setRating')}}</td>
           </tr>
           {{/each}}
         </tbody>

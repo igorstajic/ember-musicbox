@@ -1,8 +1,11 @@
 import Ember from 'ember';
-import filterArrayFormatter from 'ember-musicbox/utils/formatters';
+import {
+  filterArrayFormatter
+} from 'ember-musicbox/main/components/table-filter/component';
 const {
   Controller,
   get,
+  set,
   isEmpty,
   computed
 } = Ember;
@@ -16,7 +19,7 @@ export default Controller.extend({
         (get(this, 'selectedGenreNames').contains(get(song, 'genre')) || isEmpty(get(this, 'selectedGenreNames')));
     });
   }),
-  
+
   // Artist filter.
   selectedArtistNames: [],
   artistNames: computed('allSongs.[]', 'selectedArtistNames.[]', function() {
@@ -24,7 +27,7 @@ export default Controller.extend({
   }),
   // Genre filter.
   selectedGenreNames: [],
-  genreNames: computed('allSongs.[]','selectedGenreNames.[]', function() {
+  genreNames: computed('allSongs.[]', 'selectedGenreNames.[]', function() {
     return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedGenreNames'), 'genre');
 
   }),
@@ -35,6 +38,10 @@ export default Controller.extend({
       } else {
         get(this, propertyName).removeObject(artistName);
       }
+    },
+    setRating(song, newRating) {
+      set(song, 'hearts', newRating);
+      song.save();
     }
   }
 });

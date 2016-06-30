@@ -11,4 +11,6 @@ export default function(server) {
 
   server.get('/songs');
   server.get('/songs/:id');
+  server.put('/songs/:id');
+
 }

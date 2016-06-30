@@ -1,14 +1,14 @@
 <div class="row song-details-main">
   <div class="col-md-9 col-sm-8 col-xs-8">
     {{link-to 'Back to list' 'songs' class="back-link"}}
-    <div class="row">
+    <div class="row song-title-bar">
       <span class="col-md-8">
-      <h1>{{song.name}}</h1>
-      <h2>{{song.artist.name}}</h2>
-    </span>
-      <span class="col-md-3 pull-right">
-      {{song.hearts}}
-    </span>
+        <h1>{{song.name}}</h1>
+        <h2>{{song.artist.name}}</h2>
+      </span>
+      <span class="col-md-3 pull-right rating-bar">
+        {{likes-meter item=song currentRating=song.hearts maxRating=3 update=(action 'setRating')}}
+      </span>
     </div>
     <div class="song-details-container">
       <div class="row">
@@ -21,7 +21,7 @@
         <p class="col-md-6 align-right">{{song.genre}}</p>
       </div>
       <hr />
-      {{#hidden-details title='Album'}}
+      {{#hidden-details title='Album' }}
         <div class="row">
           <p class="col-md-6">Name</p>
           <p class="col-md-6 align-right">{{song.album.name}}</p>
