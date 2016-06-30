@@ -10,18 +10,20 @@ export default Controller.extend({
   songs: Ember.inject.controller(),
   allSongs: computed.alias('songs.all'),
 
-  selectedArtistNames: [],
-  selectedGenreNames: [],
-
   filteredList: computed('allSongs.[]', 'selectedArtistNames.[]', 'selectedGenreNames.[]', function() {
     return get(this, 'allSongs').filter(song => {
       return (get(this, 'selectedArtistNames').contains(get(song, 'artist.name')) || isEmpty(get(this, 'selectedArtistNames'))) &&
         (get(this, 'selectedGenreNames').contains(get(song, 'genre')) || isEmpty(get(this, 'selectedGenreNames')));
     });
   }),
+  
+  // Artist filter.
+  selectedArtistNames: [],
   artistNames: computed('allSongs.[]', 'selectedArtistNames.[]', function() {
     return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedArtistNames'), 'artist.name');
   }),
+  // Genre filter.
+  selectedGenreNames: [],
   genreNames: computed('allSongs.[]','selectedGenreNames.[]', function() {
     return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedGenreNames'), 'genre');
 

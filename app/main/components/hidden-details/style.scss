@@ -1,0 +1,12 @@
+.hidden-details-dropdown {
+  border-top: 1px dotted;
+  padding: 0.5em 2em;
+  overflow: hidden;
+  height: 10em;
+  transition: all 0.5s;
+  transition-timing-function: ease-in-out;
+  &.closed {
+    height: 0;
+    padding: 0;
+  }
+}

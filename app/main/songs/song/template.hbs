@@ -1,6 +1,41 @@
-<div class="row">
-  <div class="col-md-9 songs-table-container col-sm-8 col-xs-8">
+<div class="row song-details-main">
+  <div class="col-md-9 col-sm-8 col-xs-8">
     {{link-to 'Back to list' 'songs' class="back-link"}}
+    <div class="row">
+      <span class="col-md-8">
+      <h1>{{song.name}}</h1>
+      <h2>{{song.artist.name}}</h2>
+    </span>
+      <span class="col-md-3 pull-right">
+      {{song.hearts}}
+    </span>
+    </div>
+    <div class="song-details-container">
+      <div class="row">
+        <p class="col-md-6">Duration</p>
+        <p class="col-md-6 align-right">{{song.duration}}</p>
+      </div>
+      <hr />
+      <div class="row">
+        <p class="col-md-6">Genre</p>
+        <p class="col-md-6 align-right">{{song.genre}}</p>
+      </div>
+      <hr />
+      {{#hidden-details title='Album'}}
+        <div class="row">
+          <p class="col-md-6">Name</p>
+          <p class="col-md-6 align-right">{{song.album.name}}</p>
+        </div>
+        <div class="row">
+          <p class="col-md-6">Year</p>
+          <p class="col-md-6 align-right">{{song.album.year}}</p>
+        </div>
+        <div class="row">
+          <p class="col-md-6">Genre</p>
+          <p class="col-md-6 align-right">{{song.album.genre}}</p>
+        </div>
+      {{/hidden-details}}
+    </div>
   </div>
 
   <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">

@@ -3,19 +3,20 @@ $main-color: #fff;
 $background-color: #ececec;
 $border-color: #c7c7c7;
 $selected-color: #2285b6;
+$subheading-color: #848385;
 
 .selectable:hover {
   cursor: pointer;
   color: $selected-color !important;
+}
+.pointer:hover {
+  cursor: pointer;
 }
 body {
   font-size: 200%;
 }
 .main-container {
   margin-top: 3em;
-}
-.back-link {
-  text-decoration: underline;
 }
 #navbar {
   background-color: $navbar-color;
@@ -41,47 +42,10 @@ body {
     }
   }
 }
-/* Songs list page. */
-.songs-table-container {
-  padding-right: 0;
-  thead {
-    background-color: $background-color;
-    border-bottom: 2px solid $border-color;
-  }
-}
-.songs-filter-container {
-  position: fixed;
-  top: 3em;
-  bottom: 0;
-  right: 0;
-  display: block;
-  padding: 0.5em;
-  overflow-x: hidden;
-  background-color: $background-color;
-  border-left: 2px solid $border-color;
-}
-// Side filter component.
-.table-filter {
-  margin-top: 8px;
-  background-color: $main-color;
-  position: relative;
-  .filter-body {
-    height: 17em;
-    overflow-y: auto;
-    text-overflow: clip;
-    label {
-      white-space: nowrap;
-      width: 20em;
-      overflow-x: hidden;
-      text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
-      -ms-text-overflow: ellipsis;
-    }
-  }
-  &.read-only {
-    background-color: $background-color;
-    table {
-      background-color: $background-color;
-    }
-  }
-}
+// *** Pages ***
+@import "app/main/songs/style";
+@import "app/main/songs/song/style";
+
+// *** Components ***
+@import "app/main/components/hidden-details/style";
+@import "app/main/components/table-filter/style";

@@ -1,0 +1,6 @@
+<div class="row">
+  <p {{action 'toggleDetails'}} class="col-md-12 pointer">{{title}} <span class="glyphicon {{if detailsClosed 'glyphicon-chevron-down' 'glyphicon-chevron-up'}}"/></p>
+</div>
+<div class="hidden-details-dropdown {{if detailsClosed 'closed'}}">
+{{yield}}
+</div>

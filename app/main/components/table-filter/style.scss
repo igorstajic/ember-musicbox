@@ -1,0 +1,24 @@
+.table-filter {
+  margin-top: 8px;
+  background-color: $main-color;
+  position: relative;
+  .filter-body {
+    height: 17em;
+    overflow-y: auto;
+    text-overflow: clip;
+    label {
+      white-space: nowrap;
+      width: 20em;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+    }
+  }
+  &.read-only {
+    background-color: $background-color;
+    table {
+      background-color: $background-color;
+    }
+  }
+}

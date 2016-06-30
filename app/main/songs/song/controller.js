@@ -10,7 +10,9 @@ export default Controller.extend({
   song: computed.alias('model'),
   allSongs: computed.alias('songs.all'),
 
+  albumDetailsClosed: true,
+
   otherSongNames: computed('allSongs.[]', 'song', function() {
     return get(this, 'allSongs').filterBy('artist.name', get(this, 'song.artist.name')).map(song => get(song, 'name')).removeObject(get(this, 'song.name'));
-  }),
+  })
 });
