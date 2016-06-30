@@ -1,0 +1,29 @@
+<nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+  {{link-to 'MusicBox' 'songs' class="title" tagName='span'}}
+  <div class="dropdown  pull-right">
+    <span class="glyphicon glyphicon-menu-hamburger pull-right menu-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  </span>
+    <div class="dropdown-menu settings">
+      <strong>Settings</strong>
+      <li role="separator" class="divider"></li>
+
+      <div class="form-group">
+        <label>Time Format:</label>
+        <select  class="form-control">
+          <option>
+            Option 1
+          </option>
+          <option>
+            Option 2
+          </option>
+          <option>
+            Option 3
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid main-container">
+  {{outlet}}
+</div>

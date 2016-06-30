@@ -1,3 +1,7 @@
+$navbar-color: #000;
+$main-color: #fff;
+$background-color: #ececec;
+$border-color: #c7c7c7;
 body {
   font-size: 200%;
 }
@@ -5,21 +9,37 @@ body {
   margin-top: 3em;
 }
 #navbar {
+  background-color: $navbar-color;
   min-height: 3em;
   padding-left: 0.2em;
   padding-right: 0.2em;
   .menu-button {
-    color: white;
+    color: $main-color;
     font-size: 2em;
     padding: 0.2em;
   }
   .title {
-    color: white;
+    color: $main-color;
     padding: 0.1em;
     font-size: 2em;
   }
+  .dropdown-menu.settings {
+    width: 35em;
+    font-size: 1em;
+    padding: 1em;
+    label {
+      font-weight: normal;
+    }
+  }
 }
 /* Songs list page. */
+.songs-table-container {
+  padding-right: 0;
+  thead {
+    background-color: $background-color;
+    border-bottom: 2px solid $border-color;
+  }
+}
 .songs-filter-container {
   position: fixed;
   top: 3em;
@@ -28,25 +48,27 @@ body {
   display: block;
   padding: 0.5em;
   overflow-x: hidden;
-  background-color: #ececec;
-  border-left: 2px solid #c7c7c7;
-}
-.table-filter {
-  background-color: white;
-  position: relative;
-  .filter-body {
-    height: 18em;
-    overflow-y: auto;
-  }
-
+  background-color: $background-color;
+  border-left: 2px solid $border-color;
 }
 .side-filter-list {
   padding-top: 8px;
 }
-.songs-table-container {
-  padding-right: 0;
-  thead {
-    background-color: #ececec;
-    border-bottom: 2px solid #c7c7c7;
+// Side filter component.
+.table-filter {
+  background-color: $main-color;
+  position: relative;
+  .filter-body {
+    height: 17em;
+    overflow-y: auto;
+    text-overflow: clip;
+    label {
+      white-space: nowrap;
+      width: 20em;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+    }
   }
 }

@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'ember-musicbox',
     environment: environment,
     baseURL: '/',
+    podModulePrefix: 'ember-musicbox/main',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
