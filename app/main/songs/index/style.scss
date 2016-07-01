@@ -1,0 +1,18 @@
+.songs-table-container {
+  padding-right: 0;
+  thead {
+    background-color: $background-color;
+    border-bottom: 2px solid $border-color;
+  }
+}
+.side-filter-container {
+  position: fixed;
+  top: 3em;
+  bottom: 0;
+  right: 0;
+  display: block;
+  padding: 0.5em;
+  overflow-x: hidden;
+  background-color: $background-color;
+  border-left: 2px solid $border-color;
+}
