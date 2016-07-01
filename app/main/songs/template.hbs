@@ -1,24 +1,20 @@
 <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
   {{link-to 'MusicBox' 'songs' class="title selectable" tagName='span'}}
-  <div class="dropdown  pull-right">
-    <span class="glyphicon glyphicon-menu-hamburger pull-right menu-button selectable" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-  </span>
-    <div class="dropdown-menu settings">
-      <strong>Settings</strong>
-      <li role="separator" class="divider"></li>
+  {{#dropdown-menu triggerElementClasses="glyphicon glyphicon-menu-hamburger menu-button selectable" class="pull-right"}}
+    <strong>Settings</strong>
+    <li role="separator" class="divider"></li>
 
-      <div class="form-group">
-        <label>Time Format:</label>
-        <select class="form-control" onchange= {{action 'setTimeFormat' value="target.value"}}>
-          {{#each globalSettings.timeFormatOptions as |option|}}
-          <option value={{option}} selected={{eq option globalSettings.timeFormat}}>
+    <div class="form-group">
+      <label>Time Format:</label>
+      <select class="form-control" onchange= {{action 'setTimeFormat' value="target.value"}}>
+        {{#each globalSettings.timeFormatOptions as |option|}}
+          <option value= {{option}} selected= {{eq option globalSettings.timeFormat}}>
             {{option}}
           </option>
-          {{/each}}
-        </select>
-      </div>
+        {{/each}}
+      </select>
     </div>
-  </div>
+  {{/dropdown-menu}}
 </nav>
 <div class="container-fluid main-container">
   {{outlet}}
