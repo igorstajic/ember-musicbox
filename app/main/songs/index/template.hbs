@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-9 songs-table-container col-sm-8 col-xs-8">
+{{#main-layout as |container|}}
+  {{#container.centerContent class="songs-table-container" }}
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -13,22 +13,21 @@
         </thead>
         <tbody>
           {{#each filteredList as |song|}}
-          <tr>
-            {{link-to song.name 'songs.song' song.id class='selectable' tagName='td'}}
-            <td>{{song.artist.name}}</td>
-            <td>{{song.genre}}</td>
-            <td>{{format-song-duration song.duration songs.globalSettings.timeFormat}}</td>
-            <td>{{likes-meter item=song currentRating=song.hearts maxRating=3 setAction=(action 'setRating')}}</td>
-          </tr>
+            <tr>
+              {{link-to song.name 'songs.song' song.id class='selectable' tagName='td'}}
+              <td>{{song.artist.name}}</td>
+              <td>{{song.genre}}</td>
+              <td>{{format-song-duration song.duration songs.globalSettings.timeFormat}}</td>
+              <td>{{likes-meter item=song currentRating=song.hearts maxRating=3 update=(action 'setRating')}}</td>
+            </tr>
           {{/each}}
         </tbody>
       </table>
     </div>
-  </div>
+  {{/container.centerContent}}
 
-  <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">
-    <strong>Filter by </strong>
-    {{table-filter title='Artist' values=artistNames update=(action 'updateFilter' 'selectedArtistNames')}}
-    {{table-filter title='Genre' values=genreNames update=(action 'updateFilter' 'selectedGenreNames')}}
-  </div>
-</div>
+  {{#container.sideContent}}
+    <strong>Filter by </strong> {{table-filter title='Artist' values=artistNames update=(action 'updateFilter' 'selectedArtistNames')}} {{table-filter title='Genre' values=genreNames update=(action 'updateFilter' 'selectedGenreNames')}}
+  {{/container.sideContent}}
+
+{{/main-layout}}

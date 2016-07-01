@@ -1,5 +1,5 @@
-<div class="row song-details-main">
-  <div class="col-md-9 col-sm-8 col-xs-8">
+{{#main-layout as |container|}}
+{{#container.centerContent class="song-details-main"}}
     {{link-to 'Back to list' 'songs' class="back-link"}}
     <div class="row song-title-bar">
       <span class="col-md-8">
@@ -36,9 +36,9 @@
         </div>
       {{/hidden-details}}
     </div>
-  </div>
+  {{/container.centerContent}}
 
-  <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">
+  {{#container.sideContent}}
     {{table-filter isReadOnly=true title=(concat 'Other songs by ' song.artist.name) values=otherSongNames}}
-  </div>
-</div>
+  {{/container.sideContent}}
+{{/main-layout}}

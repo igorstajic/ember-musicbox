@@ -1,6 +1,9 @@
 <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
   {{link-to 'MusicBox' 'songs' class="title selectable" tagName='span'}}
-  {{#dropdown-menu triggerElementClasses="glyphicon glyphicon-menu-hamburger menu-button selectable" class="pull-right"}}
+  {{#dropdown-menu
+  triggerElementClasses="glyphicon glyphicon-menu-hamburger menu-button selectable"
+  contentClasses="settings"
+  class="pull-right"}}
     <strong>Settings</strong>
     <li role="separator" class="divider"></li>
 
