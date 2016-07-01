@@ -1,7 +1,6 @@
 import Ember from 'ember';
-const {set,
+const {
   Service,
-  get
 } = Ember;
 export default Service.extend({
   timeFormat: 'mm:ss',

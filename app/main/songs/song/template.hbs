@@ -39,6 +39,6 @@
   </div>
 
   <div class="songs-filter-container col-md-3 col-md-offset-9 col-sm-4 col-sm-offset-8 col-xs-4 col-xs-offset-8">
-    {{side-list title=(concat 'Other songs by ' song.artist.name) values=otherSongNames}}
+    {{table-filter isReadOnly=true title=(concat 'Other songs by ' song.artist.name) values=otherSongNames}}
   </div>
 </div>

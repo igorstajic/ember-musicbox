@@ -3,15 +3,14 @@ const {
   Controller,
   get,
   set,
-  computed
+  computed,
+  inject
 } = Ember;
 export default Controller.extend({
-  songs: Ember.inject.controller(),
+  songs: inject.controller(),
 
   allSongs: computed.alias('songs.all'),
   song: computed.alias('model'),
-
-  albumDetailsClosed: true,
 
   otherSongNames: computed('allSongs.[]', 'song', function() {
     return get(this, 'allSongs').filterBy('artist.name', get(this, 'song.artist.name')).map(song => get(song, 'name')).removeObject(get(this, 'song.name'));

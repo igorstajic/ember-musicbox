@@ -5,6 +5,8 @@ const {
 } = Ember;
 export default Component.extend({
   classNames: ['table-filter'],
+  classNameBindings: ['isReadOnly:read-only'],
+  isReadOnly: false,
   title: 'Default title',
   values: []
 });

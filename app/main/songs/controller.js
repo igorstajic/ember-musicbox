@@ -10,6 +10,7 @@ const {
 export default Controller.extend({
   globalSettings: service(),
   all: computed.alias('model'),
+  
   actions: {
     setTimeFormat(format) {
       set(this, 'globalSettings.timeFormat', format);
