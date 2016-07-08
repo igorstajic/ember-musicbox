@@ -7,7 +7,7 @@
   <div class="filter-body {{if isReadOnly 'read-only'}}">
     <table class="table">
       <tbody>
-        {{#each values as |item|}}
+        {{#each valueList as |item|}}
         <tr>
           <td>
             <div class="checkbox">
@@ -15,7 +15,7 @@
                 {{#unless isReadOnly}}
                   <input type="checkbox" checked={{item.selected}} onchange={{action attrs.update item.name}}> {{item.name}}
                 {{else}}
-                  {{item}}
+                  {{item.name}}
                 {{/unless}}
               </label>
             </div>

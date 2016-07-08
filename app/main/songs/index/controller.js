@@ -1,7 +1,4 @@
 import Ember from 'ember';
-import {
-  filterArrayFormatter
-} from 'ember-musicbox/main/components/table-filter/component';
 const {
   Controller,
   get,
@@ -24,21 +21,21 @@ export default Controller.extend({
 
   // Artist filter.
   selectedArtistNames: [],
-  artistNames: computed('allSongs.[]', 'selectedArtistNames.[]', function() {
-    return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedArtistNames'), 'artist.name');
+  artistNames: computed('allSongs.[]', function() {
+    return get(this, 'allSongs').mapBy('artist.name').uniq();
   }),
   // Genre filter.
   selectedGenreNames: [],
-  genreNames: computed('allSongs.[]', 'selectedGenreNames.[]', function() {
-    return filterArrayFormatter(get(this, 'allSongs'), get(this, 'selectedGenreNames'), 'genre');
+  genreNames: computed('allSongs.[]', function() {
+    return get(this, 'allSongs').mapBy('genre').uniq();
 
   }),
   actions: {
-    updateFilter(propertyName, artistName, eventObject) {
+    updateFilter(propertyName, value, eventObject) {
       if (eventObject.target.checked) {
-        get(this, propertyName).addObject(artistName);
+        get(this, propertyName).addObject(value);
       } else {
-        get(this, propertyName).removeObject(artistName);
+        get(this, propertyName).removeObject(value);
       }
     },
     setRating(song, newRating) {

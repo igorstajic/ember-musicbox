@@ -27,7 +27,9 @@
   {{/container.centerContent}}
 
   {{#container.sideContent}}
-    <strong>Filter by </strong> {{table-filter title='Artist' values=artistNames update=(action 'updateFilter' 'selectedArtistNames')}} {{table-filter title='Genre' values=genreNames update=(action 'updateFilter' 'selectedGenreNames')}}
+    <strong>Filter by </strong>
+    {{table-filter title='Artist' values=artistNames selectedValues=selectedArtistNames update=(action 'updateFilter' 'selectedArtistNames')}}
+    {{table-filter title='Genre' values=genreNames selectedValues=selectedGenreNames update=(action 'updateFilter' 'selectedGenreNames')}}
   {{/container.sideContent}}
 
 {{/main-layout}}
